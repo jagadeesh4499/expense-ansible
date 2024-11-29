@@ -9,6 +9,7 @@
     ansible.builtin.pip:
       name:
       - PyMysQl
+      - cryptography
       executable: pip3.9
   - name: Disable node js
     ansible.builtin.command: dnf module disable nodejs -y
@@ -58,3 +59,8 @@
       daemon_reload: true
       name: backend
       state: restarted
+  - name: start and enable backend
+    ansible.builtin.service:
+      name: backend
+      state: started
+      enabled: yes
