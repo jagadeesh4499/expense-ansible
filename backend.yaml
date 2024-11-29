@@ -37,7 +37,7 @@
     ansible.builtin.unarchive:
       src: /tmp/backend.zip
       dest: /app
-      remote_src: yes
+      remote_src: yes #by default ansible thinks this is in ansible server
   - name: install dependencies
     ansible.builtin.command: npm install
     args:
