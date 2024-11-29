@@ -1,0 +1,25 @@
+- name: Mysql configuration
+  hosts: mysql
+  become: yes
+  vars:
+    login_password: ExpenseApp@1
+    login_host: mysql.jagadeesh.online
+  tasks:
+  - name: install mysql server
+    ansible.builtin.package:
+      name: mysql-server
+      state: present
+  - name: start mysql
+    ansible.builtin.service:
+      name: mysqld
+      state: started
+      enabled: yes
+  - name: get the mysql info
+    community.mysql.mysql_info:
+      login_user: root
+      login_password: "{{ login_password }}"
+      login_host: "{{ login_host }}"
+    register: mysql_info
+  - name: print the mysql_info
+    ansible.builtin.debug:
+      msg: "{{ mysql_info }}"
