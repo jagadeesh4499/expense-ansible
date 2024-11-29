@@ -5,7 +5,7 @@
     login_password: ExpenseApp@1
     login_host: mysql.jagadeesh.online
   tasks:
-  - name: install PyMysQl
+  - name: install PyMysQl and cryptography
     ansible.builtin.pip:
       name:
       - PyMysQl
