@@ -5,6 +5,11 @@
     login_password: ExpenseApp@1
     login_host: mysql.jagadeesh.online
   tasks:
+  - name: install PyMysQl
+    ansible.builtin.pip:
+      name:
+      - PyMysQl
+      executable: pip3.9
   - name: Disable node js
     ansible.builtin.command: dnf module disable nodejs -y
   - name: enable node js
